@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NetworkErrorHandling</string>
+    <string name="established">"Established: "</string>
+</resources>
