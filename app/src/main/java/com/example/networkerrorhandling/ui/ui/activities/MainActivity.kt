@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         cemeteryListAdapter = CemeteryListAdapter(CemeteryListener {
             startActivity(
                 Intent(this, CemeteryDetailViewModel::class.java).apply {
-                    putExtra(CemeteryDetailViewModel.CEM_ID, it)
+                    putExtra(CEM_ID, it)
                 }
             )
         })

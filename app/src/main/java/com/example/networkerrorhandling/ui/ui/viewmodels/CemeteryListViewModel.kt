@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.networkerrorhandling.data.CemeteryRepository
 import kotlinx.coroutines.*
+import timber.log.Timber
 
 class CemeteryListViewModel @ViewModelInject constructor(
     private val repository: CemeteryRepository,
@@ -19,6 +20,7 @@ class CemeteryListViewModel @ViewModelInject constructor(
 
     init {
         refreshCemeteryList()
+        Timber.i("from view model refreshing cemetery list")
     }
 
      val cemeteryList = repository.getAllCemeteries()

@@ -5,6 +5,9 @@ buildscript {
         hilt_version = "2.28-alpha"
         activity_version = "1.1.0"
         fragment_version = "1.2.5"
+        versions_work = "2.4.0"
+
+        hilt_work= "1.0.0-alpha01"
 
 
         lifecycle_version = "2.2.0"
@@ -23,7 +26,6 @@ buildscript {
         version_moshi = "1.9.3"
         version_glide = "4.8.0"
         version_joda = "2.10"
-        versions_work = "2.4.0"
         version_timber = "4.7.1"
         roomVersion = '2.2.5'
         coreTestingVersion = '2.1.0'

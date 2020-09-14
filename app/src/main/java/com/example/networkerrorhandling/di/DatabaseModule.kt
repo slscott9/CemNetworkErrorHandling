@@ -45,7 +45,7 @@ object DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(moshi: Moshi, client: OkHttpClient) = Retrofit.Builder()
+    fun provideRetrofit(moshi: Moshi, client: OkHttpClient): Retrofit = Retrofit.Builder()
         .baseUrl("http://dts.scott.net")
         .addConverterFactory(MoshiConverterFactory.create(moshi))
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
@@ -53,17 +53,17 @@ object DatabaseModule {
         .build()
 
     @Provides
-    fun provideOkHttpclient() = OkHttpClient.Builder().build()
+    fun provideOkHttpclient(): OkHttpClient = OkHttpClient.Builder().build()
 
     @Provides
-    fun provideMoshi() = Moshi.Builder()
+    fun provideMoshi(): Moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
 
     @Provides
-    fun provideCemeteryService(retrofit: Retrofit) = retrofit.create(CemeteryService::class.java)
+    fun provideCemeteryService(retrofit: Retrofit): CemeteryService = retrofit.create(CemeteryService::class.java)
 
     @Provides
-    fun provideCemeteryRemoteDataSource(cemeteryService: CemeteryService) = CemeteryRemoteDataSource(cemeteryService)
+    fun provideCemeteryRemoteDataSource(cemeteryService: CemeteryService): CemeteryRemoteDataSource = CemeteryRemoteDataSource(cemeteryService)
 
 }

@@ -5,6 +5,7 @@ import com.example.networkerrorhandling.data.entities.Cemetery
 import com.example.networkerrorhandling.data.local.CemeteryDao
 import com.example.networkerrorhandling.uitls.asDatabaseModel
 import com.example.networkerrorhandling.data.remote.CemeteryRemoteDataSource
+import timber.log.Timber
 import java.lang.Exception
 import javax.inject.Inject
 
@@ -16,7 +17,9 @@ class CemeteryRepository @Inject constructor(
     suspend fun refreshCemeteryList() {
         try {
             val cemeteryResponse = remoteDataSource.getCemeteryListFromNetwork()
+            Timber.i(cemeteryResponse.message)
             cemeteryDao.insertAllCemsFromNetwork(*cemeteryResponse.cemeteryNetworkCemeteryContainer!!.asDatabaseModel())
+            Timber.i("refresh cemetery method")
         }catch (e: Exception){
             e.printStackTrace() //should catche the IOException
         }
