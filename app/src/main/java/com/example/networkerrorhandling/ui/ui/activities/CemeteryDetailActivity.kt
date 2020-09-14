@@ -7,6 +7,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.example.networkerrorhandling.R
 import com.example.networkerrorhandling.databinding.ActivityCemeteryDetailBinding
+import com.example.networkerrorhandling.ui.ui.adapters.GraveListAdapter
+import com.example.networkerrorhandling.ui.ui.adapters.GraveListListener
 import com.example.networkerrorhandling.ui.ui.viewmodels.CemeteryDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,5 +28,11 @@ class CemeteryDetailActivity : AppCompatActivity() {
 //
 //            }
 //        })
+
+        val adapter = GraveListAdapter(GraveListListener {
+
+        })
+
+        binding.graveRecyclerView.adapter = adapter
     }
 }

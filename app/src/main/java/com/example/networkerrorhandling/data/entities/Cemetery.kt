@@ -27,3 +27,27 @@ data class Cemetery(
     val section: String
 
 )
+
+
+@Entity(tableName = "error_grave_table")
+data class Grave(
+
+    @PrimaryKey(autoGenerate = false)
+    val graveRowId: Int,
+
+    val cemeteryId: Int,
+
+    val firstName: String,
+
+    val lastName: String,
+
+    val birthDate: String,
+
+    val deathDate: String,
+
+    val marriageYear: String,
+
+    val comment: String,
+
+    val graveNumber: String
+)
